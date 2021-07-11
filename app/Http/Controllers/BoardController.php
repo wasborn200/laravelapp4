@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Board;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BoardController extends Controller
 {
@@ -13,7 +15,8 @@ class BoardController extends Controller
     }
 
     public function add(){
-        return view('board.add');
+        $user = Auth::user();
+        return view('board.add', ['user' => $user]);
     }
 
     public function create(Request $request){

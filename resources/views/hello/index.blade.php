@@ -1,12 +1,4 @@
 @extends('layouts.helloapp')
-<style>
-    .pagination { font-size:14pt; }
-    .pagination li { display: inline-block;}
-    tr th a:link { color: white;}
-    tr th a:visited {color: white;}
-    tr th a:hover {color: white;}
-    tr th a:active {color: white;}
-</style>
 
 @section('title', 'Index')
 
@@ -16,8 +8,20 @@
 @endsection
 
 @section('content')
-    <p>こんにちは</p>
-
+    <table>
+        <tr>
+            <th>User Id</th>
+            <th>Name</th>
+            <th>Mail</th>
+        </tr>
+        @foreach($items as $item)
+            <tr>
+                <td>{{$item->id}}</td>
+                <td>{{$item->name}}</td>
+                <td>{{$item->email}}</td>
+            </tr>
+        @endforeach
+    </table>
 @endsection
 
 @section('footer')
