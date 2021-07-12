@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Posts extends Migration
+class CreateThreadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class Posts extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('threads', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('thread_id');
             $table->integer('user_id');
+            $table->string('title');
             $table->string('message');
             $table->timestamps();
         });

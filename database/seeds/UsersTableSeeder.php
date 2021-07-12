@@ -19,6 +19,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'test1',
             'email' => 'test1@gmail.com',
             'password' => Hash::make('password'),
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
         ];
         DB::table('users')->insert($param);
 
@@ -26,6 +28,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'test2',
             'email' => 'test2@gmail.com',
             'password' => Hash::make('password'),
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
         ];
         DB::table('users')->insert($param);
 
@@ -33,6 +37,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'test3',
             'email' => 'test3@gmail.com',
             'password' => Hash::make('password'),
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
         ];
         DB::table('users')->insert($param);
     }

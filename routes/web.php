@@ -21,3 +21,4 @@ Route::get('thread', 'ThreadController@index');
 Route::get('thread/add', 'ThreadController@add')->middleware('auth');
 Route::post('thread/add', 'ThreadController@create');
 
+Route::get('thread/show', 'ThreadController@show');

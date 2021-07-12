@@ -9,10 +9,13 @@
 
 @section('content')
     <table>
-        <tr><th>Title</th></tr>
+        <tr><th>Title</th><th>updated</th></tr>
         @foreach($items as $item)
             <tr>
-                <td>{{$item->title}}</td>
+                <td><a href="thread/show?id={{$item->id}}">
+                        {{$item->title}}
+                    </a></td>
+                <td>{{$item->created_at}}</td>
             </tr>
         @endforeach
     </table>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ThreadController extends Controller
 {
@@ -27,5 +28,10 @@ class ThreadController extends Controller
         unset($form['_token']);
         $thread->fill($form)->save();
         return redirect('/thread');
+    }
+
+    public function show(Request $request){
+        $item = Thread::where('id', $request->id)->first();
+        return view('thread.show', ['item' => $item]);
     }
 }
