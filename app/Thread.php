@@ -19,8 +19,4 @@ class Thread extends Model
         'message' => 'required',
     );
 
-    public function index(Request $response){
-        $items = Thread::all();
-        return view('thread.index', ['items' => $items]);
-    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Thread;
+use App\Reply;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -32,6 +33,9 @@ class ThreadController extends Controller
 
     public function show(Request $request){
         $item = Thread::where('id', $request->id)->first();
-        return view('thread.show', ['item' => $item]);
+        // thread_idに紐づけられるreplyを全て表示する
+        $replies = Reply::where('thread_id', $request->id)->get();
+        $params = ['item' => $item, 'replies' => $replies];
+        return view('thread.show', $params);
     }
 }

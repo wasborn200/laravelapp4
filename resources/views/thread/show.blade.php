@@ -19,9 +19,20 @@
                 <td>{{$item->message}}</td>
             </tr>
         </table>
-        <a href="post">
+        <a href="../reply/add?thread_id={{$item->id}}">
             メッセージ作成
         </a>
+    @endif
+    @if ($replies != null)
+        @foreach($replies as $reply )
+            <table width="400px">
+                <tr>
+                    <th width="50px">{{$reply->user->name}}</th>
+                    <td  width="400px">{{$reply->message}}</td>
+                    <td>{{$reply->created_at}}</td>
+                </tr>
+            </table>
+        @endforeach
     @endif
 @endsection
 
